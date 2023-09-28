@@ -22,7 +22,10 @@ function GuessInput({ addGuess }) {
         id="guess-input"
         type="text"
         value={guess}
+        minLength={5}
+        maxLength={5}
         pattern={'[A-Z]{5}'}
+        title="Five letter word"
         onChange={(event) => handleChange(event.target.value)}
       />
     </form>
