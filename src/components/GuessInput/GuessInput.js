@@ -1,15 +1,16 @@
 import React from 'react';
 
 function GuessInput({ addGuess, gameStatus }) {
-  const [guess, setGuess] = React.useState('');
+  const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   const handleChange = (newValue) => {
-    setGuess(newValue.toUpperCase());
+    setTentativeGuess(newValue.toUpperCase());
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    addGuess({ id: crypto.randomUUID(), guess });
-    setGuess('');
+    addGuess({ id: crypto.randomUUID(), guess: tentativeGuess });
+    setTentativeGuess('');
   };
 
   const disabled = gameStatus === 'won' || gameStatus === 'lost';
@@ -24,7 +25,7 @@ function GuessInput({ addGuess, gameStatus }) {
         required
         id="guess-input"
         type="text"
-        value={guess}
+        value={tentativeGuess}
         minLength={5}
         maxLength={5}
         pattern={'[A-Z]{5}'}
