@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ addGuess }) {
+function GuessInput({ addGuess, gameStatus }) {
   const [guess, setGuess] = React.useState('');
 
   const handleChange = (newValue) => {
@@ -11,6 +11,8 @@ function GuessInput({ addGuess }) {
     addGuess({ id: crypto.randomUUID(), guess });
     setGuess('');
   };
+
+  const disabled = gameStatus === 'won' || gameStatus === 'lost';
 
   return (
     <form
@@ -27,6 +29,7 @@ function GuessInput({ addGuess }) {
         pattern={'[A-Z]{5}'}
         title="Five letter word"
         onChange={(event) => handleChange(event.target.value)}
+        disabled={disabled}
       />
     </form>
   );
