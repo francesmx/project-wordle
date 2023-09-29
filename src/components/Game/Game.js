@@ -15,8 +15,8 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   const [gameStatus, setGameStatus] = React.useState('incomplete');
 
-  const addGuess = (guess) => {
-    const nextGuesses = [...guesses, guess];
+  const addGuess = (tentativeGuess) => {
+    const nextGuesses = [...guesses, tentativeGuess];
     setGuesses(nextGuesses);
   };
 
