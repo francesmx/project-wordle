@@ -5,7 +5,6 @@ import { checkGuess } from '../../game-helpers';
 function Guess({ value, answer, setGameStatus }) {
   const NUM_OF_CHARS = 5;
   const columns = range(0, NUM_OF_CHARS);
-
   let results = [];
 
   if (value) {
