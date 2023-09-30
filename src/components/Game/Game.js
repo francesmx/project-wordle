@@ -31,7 +31,11 @@ function Game() {
     <>
       <GuessResults guesses={guesses} answer={answer} />
       <GuessInput addGuess={addGuess} gameStatus={gameStatus} />
-      <Banner gameStatus={gameStatus} guesses={guesses} answer={answer} />
+      <Banner
+        gameStatus={gameStatus}
+        numberGuesses={guesses.length}
+        answer={answer}
+      />
     </>
   );
 }
