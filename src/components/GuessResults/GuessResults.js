@@ -4,25 +4,17 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import { range } from '../../utils';
 
 function GuessResults({ guesses, answer, gameStatus, setGameStatus }) {
-  const maxGuesses = range(0, NUM_OF_GUESSES_ALLOWED);
-
   if (guesses.length === 6 && gameStatus !== 'won') {
     setGameStatus('lost');
-  }
-
-  if (!!guesses) {
-    for (let i = 0; i < NUM_OF_GUESSES_ALLOWED; i++) {
-      maxGuesses[i] = guesses[i];
-    }
   }
 
   return (
     <div className="guess-results">
       {!!guesses &&
-        maxGuesses.map((guess, index) => (
+        range(NUM_OF_GUESSES_ALLOWED).map((num) => (
           <Guess
-            key={index}
-            value={guess}
+            key={num}
+            value={guesses[num]}
             answer={answer}
             setGameStatus={setGameStatus}
           />
