@@ -18,6 +18,10 @@ function Game() {
   const addGuess = (tentativeGuess) => {
     const nextGuesses = [...guesses, tentativeGuess];
     setGuesses(nextGuesses);
+
+    if (tentativeGuess.guess.toUpperCase() === answer) {
+      setGameStatus('won');
+    }
   };
 
   return (

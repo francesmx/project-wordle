@@ -7,21 +7,9 @@ function Cell({ letter, status }) {
   return <span className={className}>{letter}</span>;
 }
 
-function Guess({ value, answer, setGameStatus }) {
+function Guess({ value, answer }) {
   const guess = value ? value.guess : '';
   const result = checkGuess(guess, answer);
-  let numberCorrectResults = 0;
-
-  result &&
-    result.forEach((letter) => {
-      if (letter.status === 'correct') {
-        numberCorrectResults++;
-      }
-    });
-
-  if (numberCorrectResults === 5) {
-    setGameStatus('won');
-  }
 
   return (
     <p className="guess">

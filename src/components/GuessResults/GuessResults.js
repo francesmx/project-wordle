@@ -12,12 +12,7 @@ function GuessResults({ guesses, answer, gameStatus, setGameStatus }) {
     <div className="guess-results">
       {!!guesses &&
         range(NUM_OF_GUESSES_ALLOWED).map((num) => (
-          <Guess
-            key={num}
-            value={guesses[num]}
-            answer={answer}
-            setGameStatus={setGameStatus}
-          />
+          <Guess key={num} value={guesses[num]} answer={answer} />
         ))}
     </div>
   );
